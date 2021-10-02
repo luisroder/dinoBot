@@ -1,2 +1,2 @@
 # dinoBot
-Automation for chrome dino
+Automation for chrome dino!
