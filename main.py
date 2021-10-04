@@ -10,9 +10,9 @@ import numpy as np
 # snapshot.save(save_path)
 
 def detect_color(img, x, y):
-    rgb_im = img.convert('RGB')
-    r, g, b = rgb_im.getpixel((y, x))
-    return r, g, b 
+    gs_im = img.convert('L')
+    g = gs_im.getpixel((y, x))
+    return round(g / 255.0)
 
 def get_environment(img):
     color = detect_color(img, 100, 100)
@@ -32,7 +32,7 @@ def crouch():
 def detect_obstacle(img):
     for i in range(200, 650, 5):
         color = detect_color(img, 645, i)
-        if color == (83, 83, 83) or color == (172, 172, 172):
+        if color == (0):
             print("JUMP")
             jump()
             break
@@ -51,7 +51,7 @@ def start_game():
         # snapshot.save(save_path)
         # save_path = f"C:\\Users\\luisr\\{index}.png"
         # snapshot.save(save_path)
-        index = index + 1
+        # index = index + 1
         # running = False
 
 
